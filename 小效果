@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript效果</title>
+</head>
+<style>
+	#div1{
+		width: 100px;
+		height: 20px;
+		background-color: #00ffff;
+		border: 1px solid #ff00ff;
+		display: none;
+		position: absolute;
+		left:10px; 
+	}
+	#div2{
+		width: 100px;
+		height: 100px;
+		background-color: red;
+	}
+
+	#changeTag .active{
+		background-color: yellow;
+	}
+	#changeTag div{
+		width: 200px;
+		height: 200px;
+		background-color: gray;
+		display: none;
+	}
+	.calander ul{
+		display: block;
+		width: 200px;
+		height: 300px;
+		background-color: pink;
+		padding: 0;
+		margin: 0 auto;
+		
+	}
+	.calander ul li{
+		display: block;
+		width: 60px;
+		height: 60px;
+		background-color: rgb(18, 208, 18);
+		float: left;
+		margin-left: 5px;
+		margin-top: 10px;
+
+	}
+	.calander ul li h2 {
+		margin: 0;
+		color: white;
+	}
+	.calander ul li p{
+		color: white;
+		margin-left: 5px;
+	}
+	.calander .active{
+		background-color: white;
+	}
+	.calander .active h2{
+	    color: black;
+	}
+	.calander .active p{
+	    color: black;
+	}
+	#txt{
+		margin: 5px auto;
+		width: 200px;
+		height: 100px;
+		border: 2px solid pink;
+	}
+
+</style>
+<script>
+	function toGreen(){
+		var div2=document.getElementById('div2');	
+		div2.style.width='300px';
+		div2.style.background='green';
+	}
+		function toRed(){
+		var div2=document.getElementById('div2');
+		div2.style.width='100px';
+		div2.style.background='red';
+	}
+</script>
+<body>
+	<input type="checkbox" id="TipsOut" onmouseover="document.getElementById('div1').style.display='block';"  
+	onmouseout="document.getElementById('div1').style.display='none';">
+	<div id="div1">tips ......</div>
+	<hr />
+
+	<div id="div2" onmouseover="toGreen()" onmouseout="toRed()"></div>
+	<hr />
+
+
+	<h3>换肤效果</h3>
+	<h4>其本质就是改变link 的href 更换样式表</h4>
+	<hr />
+
+
+	<h3>a链接加JS</h3>
+	<a href="javascript:;">链接</a>
+	<hr />
+
+	<h3>选项卡</h3>
+
+	
+	<div id="changeTag">
+		<input type="button" class="active" value="标签一" />
+		<input type="button" value="标签二" />
+		<input type="button" value="标签三" />
+		<input type="button" value="标签四" />
+
+		<div  style="display:block">1111</div>
+		<div >2222</div>
+		<div >3333</div>
+		<div >4444</div>
+	</div>
+	<script>
+		window.onload =function ()
+		{
+			var oDiv=document.getElementById('changeTag');
+			var aBtn=oDiv.getElementsByTagName('input');
+			var aDiv=oDiv.getElementsByTagName('div');
+			for (var i = 0; i < aBtn.length; i++) 
+			{
+				aBtn[i].index=i;
+				aBtn[i].onclick=function()
+					{					
+						for(var i = 0;i<aBtn.length;i++)
+						{
+							aBtn[i].className ='';
+							aDiv[i].style.display ='none';
+							
+						}
+						this.className='active';
+						aDiv[this.index].style.display='block';
+					};	
+
+			}
+
+			
+		}
+	</script>
+
+	<hr />
+
+	<h3>简易日历</h3>
+
+	<div class="calander" id="table">
+		<ul>
+			<li class="active"><h2>1</h2><p>JAN</p></li>
+			<li><h2>2</h2><p>FEB</p></li>
+			<li><h2>3</h2><p>MAR</p></li>
+			<li><h2>4</h2><p>APR</p></li>
+			<li><h2>5</h2><p>MAY</p></li>
+			<li><h2>6</h2><p>JUN</p></li>
+			<li><h2>7</h2><p>JUL</p></li>
+			<li><h2>8</h2><p>AUG</p></li>
+			<li><h2>9</h2><p>SEP</p></li>
+			<li><h2>10</h2><p>OCT</p></li>
+			<li><h2>11</h2><p>NOV</p></li>
+			<li><h2>12</h2><p>DEC</p></li>
+		</ul>
+	
+		<div id="txt">
+			<h2>一月活动</h2>
+			<p>啦 啦啦 啦啦啦啦</p>
+		</div>
+	</div>
+	<script>
+			var cDiv = document.getElementById('table');
+			var iLi = cDiv.getElementsByTagName('li');
+			var iTxt = cDiv.getElementsByTagName('div')[0];
+			var arr=['一月来了，啊啦啦啦',
+					 '二月来了，哦啦啦啦',
+					 '三月来了，哦啦啦啦',
+					 '四月来了，哦啦啦啦',
+					 '五月来了，哦啦啦啦',
+					 '六月来了，哦啦啦啦',
+					 '七月来了，哦啦啦啦',
+					 '八月来了，哦啦啦啦',
+					 '九月来了，哦啦啦啦',
+					 '十月来了，哦啦啦啦',
+					 '十一月来了，哦啦啦啦',
+					 '十二月来了，哦啦啦啦',
+					 ]
+
+			for(var i=0; i<iLi.length;i++)
+			{
+				iLi[i].index=i;
+				iLi[i].onmouseover=function()
+				{
+					for(var i =0;i<iLi.length;i++ )
+					{
+						iLi[i].className='';
+					}
+					this.className='active';
+				 	iTxt.innerHTML='<h2>'+(this.index+1)+'月活动</h2><p>'+arr[this.index]+'</p>';
+					
+				};
+
+			}
+			
+	</script>
+
+
+
+</body>
+</html>
