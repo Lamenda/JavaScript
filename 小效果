@@ -5,6 +5,9 @@
 	<title>JavaScript效果</title>
 </head>
 <style>
+	h1,h2,h3,h4,h5,h6{	
+	text-align: center;
+	}
 	#div1{
 		width: 100px;
 		height: 20px;
@@ -13,6 +16,7 @@
 		display: none;
 		position: absolute;
 		left:10px; 
+		top: 35px;
 	}
 	#div2{
 		width: 100px;
@@ -71,6 +75,11 @@
 		height: 100px;
 		border: 2px solid pink;
 	}
+	#currentDiv{
+		width: 200px;
+		height: 200px;
+		background-color: red;
+	}
 
 </style>
 <script>
@@ -96,7 +105,7 @@
 
 
 	<h3>换肤效果</h3>
-	<h4>其本质就是改变link 的href 更换样式表</h4>
+	<p>其本质就是改变link 的href 更换样式表</p>
 	<hr />
 
 
@@ -142,7 +151,7 @@
 			}
 
 			
-		}
+		};
 	</script>
 
 	<hr />
@@ -205,7 +214,52 @@
 			}
 			
 	</script>
-
+	
+	<hr />
+	<h2>兼容的获取非行间style</h2>
+	<div id="currentDiv"></div>
+	<script>
+	
+		function getStyle(obj,name){
+			if(obj.currentStyle)
+			{
+				return obj.currentStyle[name];
+			}
+			else{
+				return getComputedStyle(obj,false)[name];
+			}
+		}
+		/*var curDiv = document.getElementById('currentDiv');
+		if(curDiv.currentStyle){
+			//IE
+			alert(curDiv.currentStyle.width);
+		}
+		else{
+			//chrome ff
+			alert(getComputedStyle(curDiv,false).width);
+		}*/
+		//alert(getStyle(currentDiv,'width'));
+	
+	</script>
+	<hr />
+	<h2> array的一些特殊用法</h2>
+	<ul>
+		<li>length 可用作清空</li>
+		<li>push()插入,pop()删除</li>
+		<li>shift()删除第一个元素</li>
+		<li>unshift()从前插入一个元素</li>
+		<li>splice(index,number,value)</li>
+		<li>splice(起点，个数)//删除</li>
+		<li>splice(起点，0，value1，value2)//插入</li>
+		<li>splice(起点，2，value1，value2)//替换</li>
+		<li>数组连接a.concat(b)//a+b</li>
+		<li>join('_')每一个元素之间加入_</li>
+		<li>sort()数组排序
+		<ul>数字大小排序 sort(<code>function (n1,n2){<br />
+		return:n1-n2;<br/>
+		} </code>)</ul>
+		</li>
+	</ul>
 
 
 </body>
