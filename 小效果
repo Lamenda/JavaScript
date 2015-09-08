@@ -3,23 +3,11 @@
 <head>
 	<meta charset="UTF-8">
 	<title>JavaScript效果</title>
-	<link rel="stylesheet" href="reset.css">
 </head>
 <style>
 	h1,h2,h3,h4,h5,h6{	
 	text-align: center;
 	}
-	h1{
-		font-size: 30px;
-	}
-	h2{
-		font-size: 25px;
-	}
-	h3{
-		font-size: 20px;
-
-	}
-
 	#div1{
 		width: 100px;
 		height: 20px;
@@ -28,7 +16,7 @@
 		display: none;
 		position: absolute;
 		left:10px; 
-		top: 15px;
+		top: 35px;
 	}
 	#div2{
 		width: 100px;
@@ -92,45 +80,6 @@
 		height: 200px;
 		background-color: red;
 	}
-	#infoPic{
-		width: 50px;
-		height: 50px;
-		background-color: red;
-		float: left;
-
-	}
-	#infoTxt{
-		width: 200px;
-		height: 200px;
-		float: left;
-		margin-left: 20px;
-		background-color: gray;
-		display: none;
-	}
-	#wufeng{
-		margin: 10px auto;
-		width: 800px;
-		height: 128px;
-		overflow: hidden;
-		position: relative;
-
-	}
-
-	#wufeng ul {
-		width: 800px;
-		height: 128px;
-		position: absolute;
-	}
-
-	#wufeng ul li{
-		
-		float: left;
-		list-style: none;
-	}
-	#wufeng ul li img{
-		width: 200px;
-		height: 128px;
-	}
 
 </style>
 <script>
@@ -143,45 +92,40 @@
 		var div2=document.getElementById('div2');
 		div2.style.width='100px';
 		div2.style.background='red';
-	
 	}
 </script>
 <body>
-	<div>
-		<input type="checkbox" id="TipsOut" onmouseover="document.getElementById('div1').style.display='block';"  
-		onmouseout="document.getElementById('div1').style.display='none';">
-		<div id="div1">tips ......</div>
-	</div>
+	<input type="checkbox" id="TipsOut" onmouseover="document.getElementById('div1').style.display='block';"  
+	onmouseout="document.getElementById('div1').style.display='none';">
+	<div id="div1">tips ......</div>
 	<hr />
-	<div>
-		<div id="div2" onmouseover="toGreen()" onmouseout="toRed()">
-			
-		</div>
-	</div>
-	<hr />
-	<div>
-		<h3>换肤效果</h3>
-		<p>其本质就是改变link 的href 更换样式表</p>
-	</div>
-	<hr />
-	<div>
-		<h3>a链接加JS</h3>
-		<a href="javascript:;">链接</a>
-	</div>
-	<hr />
-	<div>
-		<h3>选项卡</h3>	
-		<div id="changeTag">
-			<input type="button" class="active" value="标签一" />
-			<input type="button" value="标签二" />
-			<input type="button" value="标签三" />
-			<input type="button" value="标签四" />
 
-			<div  style="display:block">1111</div>
-			<div >2222</div>
-			<div >3333</div>
-			<div >4444</div>
-		</div>
+	<div id="div2" onmouseover="toGreen()" onmouseout="toRed()"></div>
+	<hr />
+
+
+	<h3>换肤效果</h3>
+	<p>其本质就是改变link 的href 更换样式表</p>
+	<hr />
+
+
+	<h3>a链接加JS</h3>
+	<a href="javascript:;">链接</a>
+	<hr />
+
+	<h3>选项卡</h3>
+
+	
+	<div id="changeTag">
+		<input type="button" class="active" value="标签一" />
+		<input type="button" value="标签二" />
+		<input type="button" value="标签三" />
+		<input type="button" value="标签四" />
+
+		<div  style="display:block">1111</div>
+		<div >2222</div>
+		<div >3333</div>
+		<div >4444</div>
 	</div>
 	<script>
 		window.onload =function ()
@@ -212,27 +156,27 @@
 
 	<hr />
 
-	<div>
-		<h3>简易日历</h3>
-		<div class="calander" id="table">
-			<ul>
-				<li class="active"><h2>1</h2><p>JAN</p></li>
-				<li><h2>2</h2><p>FEB</p></li>
-				<li><h2>3</h2><p>MAR</p></li>
-				<li><h2>4</h2><p>APR</p></li>
-				<li><h2>5</h2><p>MAY</p></li>
-				<li><h2>6</h2><p>JUN</p></li>
-				<li><h2>7</h2><p>JUL</p></li>
-				<li><h2>8</h2><p>AUG</p></li>
-				<li><h2>9</h2><p>SEP</p></li>
-				<li><h2>10</h2><p>OCT</p></li>
-				<li><h2>11</h2><p>NOV</p></li>
-				<li><h2>12</h2><p>DEC</p></li>
-			</ul>
-			<div id="txt">
-				<h2>一月活动</h2>
-				<p>啦 啦啦 啦啦啦啦</p>
-			</div>
+	<h3>简易日历</h3>
+
+	<div class="calander" id="table">
+		<ul>
+			<li class="active"><h2>1</h2><p>JAN</p></li>
+			<li><h2>2</h2><p>FEB</p></li>
+			<li><h2>3</h2><p>MAR</p></li>
+			<li><h2>4</h2><p>APR</p></li>
+			<li><h2>5</h2><p>MAY</p></li>
+			<li><h2>6</h2><p>JUN</p></li>
+			<li><h2>7</h2><p>JUL</p></li>
+			<li><h2>8</h2><p>AUG</p></li>
+			<li><h2>9</h2><p>SEP</p></li>
+			<li><h2>10</h2><p>OCT</p></li>
+			<li><h2>11</h2><p>NOV</p></li>
+			<li><h2>12</h2><p>DEC</p></li>
+		</ul>
+	
+		<div id="txt">
+			<h2>一月活动</h2>
+			<p>啦 啦啦 啦啦啦啦</p>
 		</div>
 	</div>
 	<script>
@@ -272,10 +216,8 @@
 	</script>
 	
 	<hr />
-	<div>
-		<h2>兼容的获取非行间style</h2>
-		<div id="currentDiv"></div>
-	</div>
+	<h2>兼容的获取非行间style</h2>
+	<div id="currentDiv"></div>
 	<script>
 	
 		function getStyle(obj,name){
@@ -286,243 +228,39 @@
 			else{
 				return getComputedStyle(obj,false)[name];
 			}
-		}		
+		}
+		/*var curDiv = document.getElementById('currentDiv');
+		if(curDiv.currentStyle){
+			//IE
+			alert(curDiv.currentStyle.width);
+		}
+		else{
+			//chrome ff
+			alert(getComputedStyle(curDiv,false).width);
+		}*/
+		//alert(getStyle(currentDiv,'width'));
 	
 	</script>
 	<hr />
-	<div>
-		<h2> array的一些特殊用法</h2>
-		<ul>
-			<li>length 可用作清空</li>
-			<li>push()插入,pop()删除</li>
-			<li>shift()删除第一个元素</li>
-			<li>unshift()从前插入一个元素</li>
-			<li>splice(index,number,value)</li>
-			<li>splice(起点，个数)//删除</li>
-			<li>splice(起点，0，value1，value2)//插入</li>
-			<li>splice(起点，2，value1，value2)//替换</li>
-			<li>数组连接a.concat(b)//a+b</li>
-			<li>join('_')每一个元素之间加入_</li>
-			<li>sort()数组排序
-				<ul>数字大小排序 sort(<code>function (n1,n2){<br />return:n1-n2;<br/>} </code>)	</ul>
-			</li>
-		</ul>
-	</div>
+	<h2> array的一些特殊用法</h2>
+	<ul>
+		<li>length 可用作清空</li>
+		<li>push()插入,pop()删除</li>
+		<li>shift()删除第一个元素</li>
+		<li>unshift()从前插入一个元素</li>
+		<li>splice(index,number,value)</li>
+		<li>splice(起点，个数)//删除</li>
+		<li>splice(起点，0，value1，value2)//插入</li>
+		<li>splice(起点，2，value1，value2)//替换</li>
+		<li>数组连接a.concat(b)//a+b</li>
+		<li>join('_')每一个元素之间加入_</li>
+		<li>sort()数组排序
+		<ul>数字大小排序 sort(<code>function (n1,n2){<br />
+		return:n1-n2;<br/>
+		} </code>)</ul>
+		</li>
+	</ul>
 
-	<hr/>
-	<div>
-		<h2>定时器</h2>
-		<p>setInterval(func,time),每隔time时间执行一次func函数</p>
-		<p>	times = setTimeOut(func,time),隔time时间后执行func 只执行一次</p>
-		<h3>清除定时器</h3>
-		<p>clearInterval(times);</p>
-		<p>clearTimeOut(times);</p>
-		<div id="imgbox1">
-			<img src="img/0.png" >
-			<img src="img/0.png" >
-			<img src="img/0.png" >
-			<img src="img/0.png" >年
-			<img src="img/0.png" >
-			<img src="img/0.png" >月 
-			<img src="img/0.png" >
-			<img src="img/0.png" >
-			<br/>
-			<img src="img/0.png" >
-			<img src="img/0.png" >:
-			<img src="img/0.png" >
-			<img src="img/0.png" >:
-			<img src="img/0.png" >
-			<img src="img/0.png" >
-			<button id="btn">暂停</button>
-		</div>
-	</div>
-	
-
-	<script>
-		function toDou(n)
-		{
-			if(n<10){
-				return '0'+n;
-			}
-			else{
-				return ''+n;
-			}
-
-		}
-		var aBox=document.getElementById('imgbox1');		
-		var imgs= aBox.getElementsByTagName('img');
-		//alert(imgs.length);
-		var oPuase=document.getElementById('btn');
-		oPuase.innerHTML='暂停';
-		//alert(oPuase.value=='暂停');
-		oPuase.onclick=function (){
-			if(oPuase.innerHTML=='暂停')
-			{
-				clearInterval(times);
-				oPuase.innerHTML='开始';
-			}
-			else{
-				times=setInterval('tick()',1000);
-				tick();
-				oPuase.innerHTML='暂停';
-			}
-			
-		};
-		function tick()
-		{
-			var oData= new Date();
-			var str='';
-			var times= null;
-			str=toDou(oData.getFullYear())+toDou(oData.getMonth())+toDou(oData.getDay())+toDou(oData.getHours())+toDou(oData.getMinutes())+toDou(oData.getSeconds());
-			//alert(oData.getFullYear());
-			for(var i= 0;i<imgs.length;i++)
-			{
-				imgs[i].src='img/'+str.charAt(i)+'.png';
-			}
-
-		}
-		times=setInterval('tick()',1000);
-		tick();
-
-	</script>
-
-
-	<hr />
-	<div>
-		<div style="height:300px">
-			<h2>延时资料框消失</h2>
-			<div id="infoPic">头像</div>
-			<div id="infoTxt">资料</div>
-		</div>
-	</div>
-	
-	<script>
-		var times2=null;
-		var oDp= document.getElementById('infoPic');
-		var oDt= document.getElementById('infoTxt');
-		oDp.onmouseover=oDt.onmouseover=function() {
-			/* Act on the event */	
-			clearTimeout(times2);		
-			oDt.style.display='block';			
-		};
-		oDp.onmouseout=oDt.onmouseout= function() {
-			/* Act on the event */
-			times2=setTimeout(function (){
-				oDt.style.display='none';
-			},500);			
-		};
-
-	</script>
-	
-	<hr />
-	<div>
-		<h1>无缝滚动</h1>
-		<div id="wufeng">
-		<a href="javascript:;">向右走</a>
-		<a href="javascript:;">向左走</a>
-			<ul>
-				<li><img src="img/11.jpg" ></li>
-				<li><img src="img/12.jpg" ></li>
-				<li><img src="img/13.jpg" ></li>
-				<li><img src="img/14.jpg" ></li>
-			</ul>
-		</div>
-	</div>
-	<script>
-		var oDiw=document.getElementById('wufeng');
-		var oUl=oDiw.getElementsByTagName('ul')[0];
-		var aLi =oDiw.getElementsByTagName('li');
-		var speed=2;
-		oUl.innerHTML+=oUl.innerHTML;
-		oUl.style.width=aLi.length*aLi[0].offsetWidth+'px';
-		oDiw.getElementsByTagName('a')[0].onclick= function(){
-			speed=2;
-		};
-		oDiw.getElementsByTagName('a')[1].onclick= function(){
-			speed=-2;
-		};
-		
-		function move(){
-			//console(oUl.style.left);
-			if(oUl.offsetLeft<-oUl.offsetWidth/2){
-				oUl.style.left='0';
-			}
-			else if (oUl.offsetLeft>0) {
-				oUl.style.left=-oUl.offsetWidth/2+'px';
-			};
-			oUl.style.left=oUl.offsetLeft+speed+'px';
-			//console.log('left='+oUl.offsetLeft+'set'+oUl.offsetWidth);
-		}
-
-		var times3= setInterval(move,30);
-
-		oUl.onmouseover= function(){
-			clearInterval(times3);
-		};
-		oUl.onmouseout= function(){
-			times3= setInterval(move,30);
-		};
-
-	</script>
-
-	<hr/>
-
-	<h1>DOM操作	</h1>
-	<div >
-		<h2>插入元素</h2>
-		<input type="text" id="txt1" />
-		<button id="btnAdd">创建li</button>
-		<button id="btnAdd2">在前面创建li</button>
-		<ul id="ull"></ul>
-	</div>
-	<script>
-		var oBtn=document.getElementById('btnAdd');
-		var oUl2=document.getElementById('ull');
-		var aLi= oUl2.getElementsByTagName('li');
-		var oTxt=document.getElementById('txt1');
-		var oBtn2=document.getElementById('btnAdd2');
-		//插入到最后
-		oBtn.onclick=function() {
-			var oLi = document.createElement('li');
-			oLi.innerHTML=oTxt.value;
-			oLi.style.background='red';
-			oUl2.appendChild(oLi);
-		};
-		//插入到最前面
-		oBtn2.onclick=function() {
-			var oLi = document.createElement('li');
-			oLi.innerHTML=oTxt.value;
-			if(aLi,length>0){
-				oUl2.insertBefore(oLi,aLi[0]);
-			}
-			else{
-				//兼容ie
-				oUl2.appendChild(oLi);
-			}
-			
-		};
-
-	</script>
-	<div>
-		<h2>删除元素</h2>
-		<ul id="ull2">
-			<li>qqq<a href="javascript:;">删除</a></li>
-			<li>www<a href="javascript:;">删除</a></li>
-			<li>eee<a href="javascript:;">删除</a></li>
-			<li>rrr<a href="javascript:;">删除</a></li>
-		</ul>
-	</div>
-	<script>
-	var oUl3=document.getElementById('ull2');
-	var aLi2= oUl3.getElementsByTagName('li');
-	var aA=oUl3.getElementsByTagName('a');
-	for(var i= 0;i<aA.length;i++)
-	{
-		aA[i].onclick=function(){
-			oUl3.removeChild(this.parentNode);
-		}
-	}
-	</script>
 
 </body>
 </html>
