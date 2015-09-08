@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>table应用</title>
+</head>
+<style>
+	h1{
+		margin:0 auto;
+		width:100%;
+		text-align: center;
+	}
+</style>
+<script>
+	window.onload= function(){
+
+		var oDiv=document.getElementById('div1');
+		var oTab=document.getElementById('tab');
+		var oBtn=document.getElementById('btn');
+
+		var oName=document.getElementById('name');
+	    var oAge=document.getElementById('age');
+	    var id=oTab.tBodies[0].rows.length+1;
+
+	    var aA=oTab.getElementsByTagName('a');
+	    var oTr=oTab.tBodies[0].rows;
+	    var oldColor='';   
+	    //change tr's color by mouse action
+	    for(var i = 0;i<oTr.length;i++)
+	    {
+	    	oTr[i].onmouseover= function()
+	    	{
+	    		oldColor=this.style.background;
+	    		this.style.background='yellow';
+	    	};
+	    	oTr[i].onmouseout= function()
+	    	{
+	    		
+	    		this.style.background=oldColor;
+	    	};
+	    	if(i%2=='0')
+	    	{
+	    		oTr[i].style.background='#ccc';
+	    	}
+	    }
+	 
+	    //click to add tr>td*3
+	    oBtn.onclick=function ()
+	    {
+	    	var oTr1=document.createElement('tr');
+
+	    	var oTd= document.createElement('td');
+	    	oTd.innerHTML=id;
+	    	oTr1.appendChild(oTd);  
+	    	 	
+
+	    	var oTd= document.createElement('td');
+	    	oTd.innerHTML=oName.value;
+	    	oTr1.appendChild(oTd);
+
+	    	var oTd= document.createElement('td');
+	    	oTd.innerHTML=oAge.value;
+	    	oTr1.appendChild(oTd);
+
+	    	var oTd= document.createElement('td');
+	    	oTd.innerHTML='<a href="javascript:;">删除</a>';	
+	    	oTr1.appendChild(oTd);
+	    	oTd.getElementsByTagName('a')[0].onclick= function()
+	    	{
+	    		oTab.tBodies[0].removeChild(this.parentNode.parentNode);
+	    	};     	
+	    			    	
+	    	oTab.tBodies[0].appendChild(oTr1); 
+	    	oTr1.onmouseover= function()
+	    	{
+	    		oldColor=this.style.background;
+	    		this.style.background='yellow';
+	    	};
+	    	oTr1.onmouseout= function()
+	    	{    		
+	    		this.style.background=oldColor;
+	    	};
+	    	if((id-1)%2=='0')
+	    	{
+	    		oTr1.style.background='#ccc';
+	    	} 
+
+	    	id++;
+	    };
+
+	   for(var i = 0;i<aA.length;i++)
+	    {
+	    	aA[i].onclick= function(){
+	    		oTab.tBodies[0].removeChild(this.parentNode.parentNode);
+	    	};
+	    }
+	
+	};
+</script>
+<body>
+	<div id="div1" >
+		<h1 >增加表格</h1>
+		姓名：<input type="text" id="name" />
+		年龄：<input type="text" id="age" />
+		<input type="button" id="btn" value="添加" />
+		<table id="tab" border="1" width="500px">
+			<thead>
+				<td>ID</td>
+				<td>姓名</td>
+				<td>年龄</td>
+				<td>操作</td>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>Bule</td>
+					<td>24</td>
+					<td><a href="javascript:;">删除</a></td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>张三</td>
+					<td>22</td>
+					<td><a href="javascript:;">删除</a></td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>李四</td>
+					<td>28</td>
+					<td><a href="javascript:;">删除</a></td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>王麻子</td>
+					<td>20</td>
+					<td><a href="javascript:;">删除</a></td>
+				</tr>
+				<tr>
+					<td>5</td>
+					<td>张伟</td>
+					<td>22</td>
+					<td><a href="javascript:;">删除</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<hr />
+
+	<div id="div2">
+		<h1>表格搜索(高亮显示)</h1>
+		姓名：<input type="text" id="name2" />
+		<input type="button" id="btn2" value="搜索" />
+		<input type="button" id="btn3" value="模糊搜索">
+		<input type="button" id="btn4" value="多关键字搜索">
+		<table id="tab2" border="1" width="500px">
+			<thead>
+				<td>ID</td>
+				<td>姓名</td>
+				<td>年龄</td>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>Bule</td>
+					<td>24</td>					
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>张三</td>
+					<td>22</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>李四</td>
+					<td>28</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>王麻子</td>
+					<td>20</td>
+				</tr>
+				<tr>
+					<td>5</td>
+					<td>张伟</td>
+					<td>22</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<script>
+		var oTab2= document.getElementById('tab2');
+		var oBtn2=document.getElementById('btn2');
+		var oBtn3=document.getElementById('btn3');
+		var oBtn4=document.getElementById('btn4');
+		var oTxt2= document.getElementById('name2');
+		
+		//精确搜索
+		oBtn2.onclick= function()
+		{
+			for(var i =0;i<oTab2.tBodies[0].rows.length;i++)
+			{
+				var strTab=oTab2.tBodies[0].rows[i].cells[1].innerHTML;
+				var strTxt=oTxt2.value;
+				if(strTab==strTxt)
+				{
+					oTab2.tBodies[0].rows[i].style.background='yellow';	
+				}
+				else
+				{
+					oTab2.tBodies[0].rows[i].style.background='';
+				}
+			}
+		};
+		//模糊搜索
+		oBtn3.onclick= function()
+		{
+			for(var i =0;i<oTab2.tBodies[0].rows.length;i++)
+			{
+				var strTab=oTab2.tBodies[0].rows[i].cells[1].innerHTML.toLowerCase();
+				var strTxt=oTxt2.value.toLowerCase();
+				if(strTab.search(strTxt)!=-1)
+				{
+					oTab2.tBodies[0].rows[i].style.background='yellow';	
+				}
+				else
+				{
+					oTab2.tBodies[0].rows[i].style.background='';
+				}
+			}
+
+		};
+		//多关键字搜索
+		oBtn4.onclick= function()
+		{
+			for(var i =0;i<oTab2.tBodies[0].rows.length;i++)
+			{
+				var strTab=oTab2.tBodies[0].rows[i].cells[1].innerHTML.toLowerCase();
+				var strTxt=oTxt2.value.toLowerCase();
+				var arr = strTxt.split(' ');
+				oTab2.tBodies[0].rows[i].style.background='';			
+				for(var j=0;j<arr.length;j++)
+				{				
+					if(strTab.search(arr[j])!=-1)
+					{
+						oTab2.tBodies[0].rows[i].style.background='yellow';	
+					}
+				}		
+				
+			}
+
+		};
+	</script>
+
+	<hr />
+	<div id="div2">
+		<h1>表格排序</h1>		
+		<input type="button" id="btn5" value="排序">
+		<table id="tab3" border="1" width="500px">
+			<thead>
+				<td>ID</td>
+				<td>姓名</td>
+				<td>年龄</td>
+			</thead>
+			<tbody>
+				<tr>
+					<td>4</td>
+					<td>王麻子</td>
+					<td>20</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>李四</td>
+					<td>28</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>张三</td>
+					<td>22</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>Bule</td>
+					<td>24</td>					
+				</tr>
+				<tr>
+					<td>5</td>
+					<td>张伟</td>
+					<td>22</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<script>
+		var oBtn5=document.getElementById('btn5');
+		var oTab3=document.getElementById('tab3');
+
+		oBtn5.onclick=function ()
+		{
+			var arr2=[];
+			for(var i= 0;i<oTab3.tBodies[0].rows.length;i++)
+			{
+				arr2[i]=oTab3.tBodies[0].rows[i];
+				arr2.sort(function(li1,li2){
+					//通过ID进行排序的关键
+					var n1=parseInt(li1.cells[0].innerHTML);
+					var n2=parseInt(li2.cells[0].innerHTML);
+					return n1-n2;
+				});				
+			}
+			for(var i=0;i<arr2.length;i++)
+			{
+				oTab3.tBodies[0].appendChild(arr2[i]);
+			}
+		}
+	</script>
+	
+</body>
+</html>
